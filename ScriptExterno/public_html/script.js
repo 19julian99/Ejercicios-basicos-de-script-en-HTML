@@ -1,0 +1,1 @@
+ alert("Esta alerta de java Script es externa al html y se llama en el body de la pagina con src")

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>fixed gear bogota</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="cabecera">
+        <p>A continuacion tenemos elementos de HTML mezclados con scripts, esto se ve evidenciado en las propiedades
+        de arrastrar de una tabla a otra una imagen , este scrip le proporciona a una tabla  e imagenes de HTML las propiedades de 
+        drag and drop</p>
+       
+    </div>       
+
+            <style>
+                #div1 {width: 300px; height: 300px; padding: 50xp; border: 1px solid #aaaaaa;}
+                #div2 {width: 300px; height: 300px; padding: 50xp; border: 1px solid #aaaaaa;}
+                #div3 {width: 300px; height: 300px; padding: 50xp; border: 1px solid #aaaaaa;}
+                
+            </style>
+            
+            <script>
+                function allowDrop(ev){
+                    ev.preventDefault();  
+            }
+                function drag(ev){
+                    ev.dataTransfer.setData("text", ev.target.id);
+                }
+                function drop(ev){
+                    ev.preventDefault();
+                    var data = ev.dataTransfer.getData("text");
+                    ev.target.appendChild(document.getElementById(data));
+                }    
+            </script>
+            <table border="1px" >
+                <tr> 
+
+                    <td><img id="im1" src="img/montaña.jpg" draggable="true" ondragstart="drag(event)" width="352" height="352"></td>
+                    <td> <img id="im1" src="img/ruta.jpg" draggable="true" ondragstart="drag(event)" width="352" height="352"></td>
+                    <td><img id="im1" src="img/fija.jpg" draggable="true" ondragstart="drag(event)" width="352" height="352"></td>
+                </tr>
+
+            </table>
+
+            <table  id="table" width:352px height:252px >
+                <tr>
+              <td ><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"width="352" height="352"></div></td>
+              <td><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"width="352" height="352"></div></td>
+              <td><div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"width="352" height="352"></div></td>
+              
+              </tr>
+            </table>
+        </div>
+    </div>
+   
+</body>
+</html>
